@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "categories",
+  "info": {
+    "singularName": "category",
+    "pluralName": "categories",
+    "displayName": "category",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Cname": {
+      "type": "string"
+    },
+    "Cslug": {
+      "type": "uid",
+      "targetField": "Cname",
+      "required": true
+    },
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product",
+      "mappedBy": "category"
+    },
+    "Cdescription": {
+      "type": "richtext",
+      "minLength": 10,
+      "maxLength": 50
+    }
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "product",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Pname": {
+      "type": "string",
+      "required": true
+    },
+    "Pprice": {
+      "type": "decimal",
+      "default": 0,
+      "required": true
+    },
+    "Pdescription": {
+      "type": "richtext"
+    },
+    "Pquantity": {
+      "type": "integer",
+      "default": 0
+    },
+    "Psize": {
+      "type": "string",
+      "required": true,
+      "default": "s",
+      "maxLength": 2,
+      "minLength": 1
+    },
+    "Pmanufacturer": {
+      "type": "string",
+      "required": true
+    },
+    "Pslug": {
+      "type": "uid",
+      "targetField": "Pname",
+      "required": true
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "products"
+    },
+    "Pimage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Pcolors": {
+      "type": "enumeration",
+      "enum": [
+        "red",
+        "green",
+        "blue",
+        "yellow",
+        "white",
+        "black"
+      ],
+      "required": true
+    }
+  }
+}
